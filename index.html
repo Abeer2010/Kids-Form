@@ -1,0 +1,204 @@
+<html>
+    <head>
+        <title>Kids Form</title>
+    </head>
+    <body>
+        <center>
+            <img src="https://i.pinimg.com/736x/eb/7a/ec/eb7aecdec589c161bec65c7e30c7fea3.jpg">
+            <br>
+            <br>
+            <h1>Guru Kripa Family</h1>
+            <h2>Kids Form</h2>
+
+        </center>
+        <style>
+            h1{
+                font-weight: bold;
+                font-size: 100px;
+                font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            }
+            h2{
+                font-size: 50px;
+                font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            }
+            body{
+                
+                justify-content: center;
+                align-items: center;
+                min-height: 100vh;
+            }
+            .calendar{
+                position:relative;
+                width: 200px;
+                text-align: center;
+                background:wheat;
+                border-radius: 8px;
+                overflow: hidden;
+                font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+                
+            }
+            .calendar #monthName{
+                position: relative;
+                padding: 5px 10px;
+                background:rgb(63, 53, 192);
+                color: white;
+                font-size: 30px;
+                font-weight: 700;
+            }
+            .calendar #dayName{
+                margin-top: 20px;
+                line-height: 1em;
+                font-size: 30px;
+                font-weight: 300;
+            }
+            .calendar #dayNumber{
+                font-size: 60px;
+            }
+            .calendar #year{
+                margin-bottom: 20px;
+                font-size: 30px;
+                font-weight: 200;
+
+            }
+            select{
+                width: 400px;
+                height:60px;
+                font-size: 50px;
+                font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            }
+            #s{
+                font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+                width: 300px;
+                height: 60px;
+                font-size: 40px;
+            }
+            #hd{
+                font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+                width: 300px;
+                height: 60px;
+                font-size: 40px;
+            }
+            #sh{
+                font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+                width: 300px;
+                height: 60px;
+                font-size: 40px;
+            }
+            #l{
+                font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+                width: 300px;
+                height: 60px;
+                font-size: 40px;
+            }
+            button{
+                width:200px;
+                height:60px;
+                font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+                font-size: 40px;
+                background-color:rgb(63, 53, 192);
+                color: white;
+            }
+            #output_1{
+                width: 100px;
+                height: 40px;
+                margin-left: 250px;
+                margin-top: -85px;
+            }
+            p{
+                font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+                font-size: 40px;
+            }
+        #output_2{
+            width: 100px;
+                height: 40px;
+                margin-left: 318px;
+                margin-top: -85px;
+        }
+        #output_3{
+            width: 100px;
+                height: 40px;
+                margin-left: 318px;
+                margin-top: -85px;
+        }
+        
+        </style>
+        <center>
+            <div class="calendar">
+                <p id="monthName"></p>
+                <p id="dayName"></p>
+                <p id="dayNumber"></p>
+                <p id="year"></p>
+            </div>
+            <br>
+            <br>
+            <br>
+            <select name="Name">
+                <option value="veer">Veer</option>
+                <option value="sabar">Sabar</option>
+                <option value="avika">Avika</option>
+                <option value="ayaan">Ayaan</option>
+                <option value="abeer">Abeer</option>
+                <option value="naman">Naman</option>
+            </select>
+            <br>
+            <br>
+            <input type="number" id="s" placeholder="Sewa">
+            <br>
+            <br>
+            <input type="number" id="hd" placeholder="Hasti Duniya">
+            <br>
+            <br>
+            <input type="number" id="sh" placeholder="Share">
+            <br>
+            <br>
+            <input type="number" id="l" placeholder="Lie">
+            <br>
+            <br>
+            <button onclick="keepScore()">Submit</button>
+            <br>
+            <br>
+            <p>Day Total : </p>
+            <p id="output_1"></p>
+            <p>Monthly Total : </p><p id="output_2"></p>
+            <p>Lifetime Total : </p><p id="output_3"></p>
+        </center>
+       
+        <script> 
+            const lang = navigator.language;
+            let date = new Date();
+
+            let dayNumber = date .getDate();
+            let month = date.getMonth();
+            let dayName = date.toLocaleString(lang,{weekday: 'long'})
+            let monthName = date.toLocaleString(lang,{month: 'long'})
+            let year = date.getFullYear()
+
+            document.getElementById("monthName").innerHTML = monthName;
+            document.getElementById("dayName").innerHTML = dayName;
+            document.getElementById("dayNumber").innerHTML =dayNumber;
+            document.getElementById("year").innerHTML = year;
+
+            var points_of_veer = 0;
+            var points_of_sabar = 0;
+            var points_of_avika = 0;
+            var points_of_ayaan = 0;
+            var points_of_abeer = 0;
+            var points_of_naman = 0;
+            
+
+            function keepScore(){
+            var s = parseInt(document.getElementById("s").value);
+            var hd = parseInt(document.getElementById("hd").value);
+            var sh = parseInt(document.getElementById("sh").value);
+            var l = parseInt(document.getElementById("l").value);
+        
+            var result_1_daily = s+hd+sh-l;
+ 
+                document.getElementById("output_1").innerHTML=result_1_daily;
+               
+            }
+
+
+        </script>
+    </body>
+</html>
